@@ -35,7 +35,7 @@ class Panel(ttk.Frame):
         super().__init__(parent)
         self.controller = controller
         
-        etiqueta = ttk.Label(self, text="Sistema de Gestión de Residencia", font=("Helvetica", 24, "bold"))
+        etiqueta = ttk.Label(self, text="Sistema de Gestión de Seguridad de Residencia", font=("Helvetica", 24, "bold"))
         etiqueta.place(relx=0.5, rely=0.2, anchor='center')
         
         # Botones de navegación
