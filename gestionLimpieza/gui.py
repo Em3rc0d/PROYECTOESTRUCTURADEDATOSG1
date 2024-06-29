@@ -76,7 +76,7 @@ def guardar_reporte_csv():
 # Función para cargar incidencias desde un archivo CSV
 def cargar_incidencias_desde_csv():
     try:
-        filename = 'reporte_incidencias.csv'
+        filename = 'registroscsv/reporte_incidencias.csv'
         with open(filename, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:

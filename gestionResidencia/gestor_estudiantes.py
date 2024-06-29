@@ -4,9 +4,9 @@ import random
 from datetime import datetime
 from collections import deque
 
-RUTA_ARCHIVO_ESTUDIANTES = 'estudiantes.csv'
-RUTA_ARCHIVO_REGISTRO_ACCESO = 'registro_acceso.csv'
-RUTA_ARCHIVO_ESTADO_ESTUDIANTES = 'estado_estudiantes.csv'
+RUTA_ARCHIVO_ESTUDIANTES = 'registroscsv/estudiantes.csv'
+RUTA_ARCHIVO_REGISTRO_ACCESO = 'registroscsv/registro_acceso.csv'
+RUTA_ARCHIVO_ESTADO_ESTUDIANTES = 'registroscsv/estado_estudiantes.csv'
 
 def inicializar_archivos():
     if not os.path.exists(RUTA_ARCHIVO_ESTUDIANTES):

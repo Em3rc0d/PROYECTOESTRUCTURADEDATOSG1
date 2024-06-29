@@ -22,10 +22,10 @@ class MainApp:
         title_label.pack(pady=10)
 
         # Crear botones para abrir los main de cada proyecto
-        self.create_project_button(self.main_frame, "Abrir Proyecto 1", "proyecto-alejandro-original/main.py")
-        self.create_project_button(self.main_frame, "Abrir Proyecto 2", "proyectoED-main/gui.py")
-        self.create_project_button(self.main_frame, "Abrir Proyecto 3", "jorigito_proyecto_luzmila.py")
-        self.create_project_button(self.main_frame, "Abrir Proyecto 4", "PROYECTO_LUZMILA_fabrizio_raul.py")
+        self.create_project_button(self.main_frame, "Abrir Proyecto 1", "gestionResidencia/main.py")
+        self.create_project_button(self.main_frame, "Abrir Proyecto 2", "gestionLimpieza/gui.py")
+        self.create_project_button(self.main_frame, "Abrir Proyecto 3", "gestionSalud/jorigito_proyecto_luzmila.py")
+        self.create_project_button(self.main_frame, "Abrir Proyecto 4", "gestionQuejas/PROYECTO_LUZMILA_fabrizio_raul.py")
 
     def create_project_button(self, frame, button_text, script_path):
         button = ttk.Button(frame, text=button_text, command=lambda: self.open_project(script_path), style='TButton')
