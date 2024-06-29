@@ -51,14 +51,12 @@ class App:
         self.tab_registro_residentes = ttk.Frame(self.tabControl)
         self.tab_registro_chequeos = ttk.Frame(self.tabControl)
         self.tab_diagnosticos = ttk.Frame(self.tabControl)
-        self.tab_reportes = ttk.Frame(self.tabControl)
 
         # Nombres de pestañas actualizados
         self.tabControl.add(self.tab_residentes, text='Residentes')
         self.tabControl.add(self.tab_registro_residentes, text='Registro de Residentes')
         self.tabControl.add(self.tab_registro_chequeos, text='Registro de Chequeos')
         self.tabControl.add(self.tab_diagnosticos, text='Diagnósticos')
-        self.tabControl.add(self.tab_reportes, text='Reportes')
 
         self.tabControl.pack(expand=1, fill="both")
 
@@ -66,7 +64,6 @@ class App:
         self.create_registro_residentes_tab()
         self.create_registro_chequeos_tab()
         self.create_diagnosticos_tab()
-        self.create_reportes_tab()
 
     # Funciones para la pestaña "Residentes"
     def create_residentes_tab(self):
@@ -203,7 +200,6 @@ class App:
             self.chequeo_tree.insert('', 'end', values=new_data)
             self.update_diagnostico_tab()
             entry_window.destroy()
-            self.update_reportes_tab()
 
         tk.Button(entry_window, text="Guardar", command=save_data).grid(row=4, column=0, columnspan=2, pady=10)
 
@@ -269,58 +265,7 @@ class App:
             new_data = [values[0], values[1], tratamiento, observacion]
             self.diagnostico_tree.insert('', 'end', values=new_data)
 
-    # Funciones para la pestaña "Reportes"
-    def create_reportes_tab(self):
-        ttk.Label(self.tab_reportes, text="Reportes").grid(column=0, row=0, padx=10, pady=10)
-
-        # Crear Treeview con las columnas especificadas
-        self.reporte_tree = ttk.Treeview(self.tab_reportes, columns=(
-        "ID", "Nombre", "Síntomas", "Estado", "Actual", "Tratamiento", "Observación"), show='headings')
-        self.reporte_tree.heading("ID", text="ID")
-        self.reporte_tree.heading("Nombre", text="Nombre")
-        self.reporte_tree.heading("Síntomas", text="Síntomas")
-        self.reporte_tree.heading("Estado", text="Estado")
-        self.reporte_tree.heading("Actual", text="Actual")
-        self.reporte_tree.heading("Tratamiento", text="Tratamiento")
-        self.reporte_tree.heading("Observación", text="Observación")
-
-        self.reporte_tree.grid(column=0, row=1, padx=10, pady=10, columnspan=4)
-
-        # Actualizar reporte_tree con los datos de otras pestañas
-        self.update_reportes_tab()
-
-    def update_reportes_tab(self):
-        # Limpiar el árbol de reportes antes de agregar nuevos datos
-        for item in self.reporte_tree.get_children():
-            self.reporte_tree.delete(item)
-
-        # Recopilar información de residentes y sus chequeos y diagnósticos
-        for residente_item in self.residente_tree.get_children():
-            residente_values = self.residente_tree.item(residente_item, 'values')
-            id_residente = residente_values[0]
-            nombre_residente = residente_values[1]
-
-            # Recopilar chequeos del residente
-            chequeos_residente = [
-                self.chequeo_tree.item(c)['values']
-                for c in self.chequeo_tree.get_children()
-                if self.chequeo_tree.item(c)['values'][1] == id_residente
-            ]
-
-            # Recopilar diagnósticos del residente
-            diagnosticos_residente = [
-                self.diagnostico_tree.item(d)['values']
-                for d in self.diagnostico_tree.get_children()
-                if self.diagnostico_tree.item(d)['values'][1] == id_residente
-            ]
-
-            # Agregar datos al reporte_tree
-            for chequeo in chequeos_residente:
-                for diagnostico in diagnosticos_residente:
-                    if chequeo[0] == diagnostico[0]:  # Chequeo ID debe coincidir
-                        self.reporte_tree.insert('', 'end', values=(
-                        id_residente, nombre_residente, chequeo[3], chequeo[4], chequeo[4], diagnostico[2],
-                        diagnostico[3]))
+    
 
 root = tk.Tk()
 app = App(root)
