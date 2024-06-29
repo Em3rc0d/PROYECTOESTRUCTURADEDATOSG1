@@ -10,13 +10,10 @@ Link: [Proyecto Magna](https://github.com/Em3rc0d/PROYECTOESTRUCTURADEDATOSG1.gi
 3. [Instalación](#instalación)
 4. [Uso](#uso)
 5. [Estructura del Proyecto](#estructura-del-proyecto)
-6. [Capturas de Pantalla](#capturas-de-pantalla)
-7. [Personalización](#personalización)
-8. [Contribuciones](#contribuciones)
-9. [Licencia](#licencia)
-10. [Contacto](#contacto)
-11. [Etiquetas](#etiquetas)
-12. [Enlaces](#enlaces)
+6. [Personalización](#personalización)
+7. [Contribuciones](#contribuciones)
+8. [Licencia](#licencia)
+9. [Etiquetas](#etiquetas)
 
 ## **Descripción del Proyecto**
 El proyecto permite a los usuarios abrir y ejecutar diferentes scripts desde una interfaz gráfica centralizada. Cada script está asociado con un botón dentro de la interfaz. Al hacer clic en un botón, el script correspondiente se ejecuta automáticamente.
